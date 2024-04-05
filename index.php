@@ -30,10 +30,12 @@
     //& Conditionals and Boolean  
     $name = "Ashikur Rahman";
 
-    $read = true;
+    $read = false;
 
     if ( $read ) {
         $message  = " You have read $name ";
+    } else {
+        $message  = "You have read not found";      
     }
 
     ?>
