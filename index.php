@@ -6,19 +6,31 @@
     <title>Message</title>
 </head>
 <body>
-    <h1>Recommended Book</h1>
+    <h1>Associative Array</h1>
 
     <?php 
     $books = [
-        'Jane Eyre',
-        'Wuthering Heights',
-        'The Lord of the Rings'
+        [
+            'name'      => 'Do Androids Dream of Electric Sheep',
+            'author'    => 'Philip K. Dick',
+            'parseUrl'  => 'http://example.com'
+        ],
+
+        [
+            'name'      => 'Project Hail Mary',
+            'author'    => 'Andy Weir',
+            'parseUrl'  => 'http://example.com'
+        ]
     ];
     ?>
     <ul>
-        <?php foreach ( $books as $book ) : ?>  //* Update foreach start ... 
-            <li><?= $book ?></li>
-        <?php endforeach ?> //* Update foreach end... 
+        <?php foreach ( $books as $book ) : ?>
+            <li>
+                <a href="<?= $book['parseUrl']?>">
+                    <?= $book['name'] ?>
+                </a>
+            </li>
+        <?php endforeach ?>
     </ul>
 </body>
 </html>
