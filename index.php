@@ -5,42 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message</title>
 </head>
-<style>
-    body {
-        height: 100vh;
-        display: grid;
-        place-items: center;
-        margin: 0;
-        color: #000;
-    }
-
-    h1 {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        color: white; 
-        border-radius: 8px;
-        background-color: black; 
-        padding: 20px; 
-        font-family: Arial, sans-serif; 
-    }
-</style>
 <body>
+    <h1>Recommended Book</h1>
 
-    
-    <?php
-    //& Conditionals and Boolean  
-    $name = "Ashikur Rahman";
-
-    $read = false;
-
-    if ( $read ) {
-        $message  = " You have read $name ";
-    } else {
-        $message  = "You have read not found";      
-    }
-
+    <?php 
+    $books = [
+        'Jane Eyre',
+        'Wuthering Heights',
+        'The Lord of the Rings'
+    ];
     ?>
-    <h1>
-        <?= $message;?>
-    </h1>
+    <ul>
+        <?php 
+            foreach ( $books as $book ) {
+                echo "<li>". $book ."</li>";
+            }
+        ?>
+    </ul>
 </body>
 </html>
