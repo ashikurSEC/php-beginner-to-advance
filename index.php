@@ -16,11 +16,9 @@
     ];
     ?>
     <ul>
-        <?php 
-            foreach ( $books as $book ) {
-                echo "<li>". $book ."</li>";
-            }
-        ?>
+        <?php foreach ( $books as $book ) : ?>  //* Update foreach start ... 
+            <li><?= $book ?></li>
+        <?php endforeach ?> //* Update foreach end... 
     </ul>
 </body>
 </html>
