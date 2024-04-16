@@ -1,62 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message</title>
-</head>
+require 'function.php';
 
-<body>
-    <h1>Function and Filter</h1>
 
-    <?php
-    $books = [
-        [
-            'name'          => 'Do Androids Dream of Electric Sheep',
-            'author'        => 'Philip K. Dick',
-            'releaseYear'   => 1968,
-            'parseUrl'      => 'http://example.com'
-        ],
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-        [
-            'name'          => 'Project Hail Mary',
-            'author'        => 'Andy Weir',
-            'releaseYear'   => 2021,
-            'parseUrl'      => 'http://example.com'
-        ],
+dd( $uri );
 
-        [
-            'name'          => 'The Matian',
-            'author'        => 'Andy Weir',
-            'releaseYear'   => 2011,
-            'parseUrl'      => 'http://example.com'
-        ]
-    ];
-    
-    function filterByAuthor ( $books, $author ) { //* Add argument $author ... 
-        $filteredBooks = [];
+ 
 
-        foreach ( $books as $book ) {
-            if ( $book ['author'] === $author ) { //* Declare $author...
-                $filteredBooks[] = $book;
-            }
-        }
+if ( $uri === '/') {
+    require 'controllers/index.php';
+} else if ( $uri === '/about') {
+    require 'controllers/about.php';
+} else if ( $uri === '/contact') {
+    require 'controllers/contact.php';
+}
 
-        return $filteredBooks;
-    }
 
-    $filteredBooks = filterByAuthor( $books, 'Andy Weir' ); //* Passing by Author name... 
-    ?>
-    <ul>
-        <?php foreach ( $filteredBooks as $book) : ?>
-            <li>
-                <a href="<?= $book['parseUrl'] ?>">
-                    <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
-                </a>
-            </li>
-        <?php endforeach ?>
-    </ul>
-</body>
-
-</html>
